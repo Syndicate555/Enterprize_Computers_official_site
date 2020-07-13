@@ -14,7 +14,11 @@ function Footer() {
       <p>
         {" "}
         Created by{" "}
-        <a href="https://saffataziz.site/" target="_blank">
+        <a
+          href="https://saffataziz.site/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           Saffat Aziz
         </a>
       </p>
