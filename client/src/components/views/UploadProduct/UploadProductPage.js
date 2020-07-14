@@ -105,7 +105,12 @@ function UploadProductPage(props) {
       categories: CategoryValue,
     };
 
-    Axios.post("/api/product/uploadProduct", variables);
+    Axios.post("/api/product/uploadProduct", variables).then((response) => {
+      if (response.data.success) {
+      } else {
+        alert("Failed to upload product");
+      }
+    });
   };
   return (
     <div style={{ maxWidth: "700px", margin: "2rem auto" }}>

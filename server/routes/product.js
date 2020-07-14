@@ -1,6 +1,9 @@
+// Product Controller
+
 const express = require("express");
 const router = express.Router();
 const { User } = require("../models/User");
+const { Product } = require("../models/Product");
 const multer = require("multer");
 const { auth } = require("../middleware/auth");
 const { response } = require("express");
@@ -39,6 +42,10 @@ router.post("/uploadImage", auth, (req, res) => {
       fileName: res.req.file.filename,
     });
   });
+});
+
+router.post("/uploadProduct", auth, (req, res) => {
+  // Save all the data from the client to the database
 });
 
 module.exports = router;
