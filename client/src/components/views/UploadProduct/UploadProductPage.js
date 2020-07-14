@@ -71,6 +71,7 @@ function UploadProductPage() {
   const [TitleValue, setTitleValue] = useState("");
   const [DescriptionValue, setDescriptionValue] = useState("");
   const [PriceValue, setPriceValue] = useState(0);
+  const [CategoryValue, setCategoryValue] = useState(1);
   const onTitleChange = (event) => {
     setTitleValue(event.currentTarget.value);
   };
@@ -79,6 +80,9 @@ function UploadProductPage() {
   };
   const onPriceChange = (event) => {
     setPriceValue(event.currentTarget.value);
+  };
+  const onCategorySelectChange = (event) => {
+    setCategoryValue(event.currentTarget.value);
   };
   return (
     <div style={{ maxWidth: "700px", margin: "2rem auto" }}>
@@ -107,7 +111,7 @@ function UploadProductPage() {
         <br></br>
         <label>Category</label>
         <br></br>
-        <select>
+        <select onChange={onCategorySelectChange}>
           {Category.map((item) => (
             <option key={item.key} value={item.key}>
               {item.value}
