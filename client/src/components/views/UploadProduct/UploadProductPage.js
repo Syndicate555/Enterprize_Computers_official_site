@@ -101,12 +101,18 @@ function UploadProductPage() {
         <br></br>
         <label>Price($)</label>
         <br />
-        <br />
         <input onChange={setPriceValue} value={PriceValue} />
+        <br></br>
+        <br></br>
+        <br></br>
+        <label>Category</label>
+        <br></br>
         <select>
-          {Category.map((item) => {
-            <option key value></option>;
-          })}
+          {Category.map((item) => (
+            <option key={item.key} value={item.key}>
+              {item.value}
+            </option>
+          ))}
         </select>
         <br></br>
         <br></br>
