@@ -72,7 +72,7 @@ const Category = [
   },
 ];
 
-function UploadProductPage() {
+function UploadProductPage(props) {
   const [TitleValue, setTitleValue] = useState("");
   const [DescriptionValue, setDescriptionValue] = useState("");
   const [PriceValue, setPriceValue] = useState(0);
@@ -95,6 +95,17 @@ function UploadProductPage() {
   };
   const onSubmit = (event) => {
     event.preventDefault();
+
+    const variables = {
+      writer: props.user.userData._id,
+      title: TitleValue,
+      description: DescriptionValue,
+      price: PriceValue,
+      images: Images,
+      categories: CategoryValue,
+    };
+
+    Axios.post("/api/product/uploadProduct", variables);
   };
   return (
     <div style={{ maxWidth: "700px", margin: "2rem auto" }}>
