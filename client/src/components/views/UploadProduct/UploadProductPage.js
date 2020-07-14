@@ -96,22 +96,33 @@ function UploadProductPage(props) {
   const onSubmit = (event) => {
     event.preventDefault();
 
-    const variables = {
-      writer: props.user.userData._id,
-      title: TitleValue,
-      description: DescriptionValue,
-      price: PriceValue,
-      images: Images,
-      categories: CategoryValue,
-    };
+    if (
+      !TitleValue ||
+      !DescriptionValue ||
+      !PriceValue ||
+      !Images ||
+      !CategoryValue
+    ) {
+      alert("Please fill in all the fields");
+    } else {
+      const variables = {
+        writer: props.user.userData._id,
+        title: TitleValue,
+        description: DescriptionValue,
+        price: PriceValue,
+        images: Images,
+        categories: CategoryValue,
+      };
 
-    Axios.post("/api/product/uploadProduct", variables).then((response) => {
-      if (response.data.success) {
-        alert("Product Successfully Uploaded");
-      } else {
-        alert("Failed to upload product");
-      }
-    });
+      Axios.post("/api/product/uploadProduct", variables).then((response) => {
+        if (response.data.success) {
+          alert("Product Successfully Uploaded");
+          props.history.push("/");
+        } else {
+          alert("Failed to upload product");
+        }
+      });
+    }
   };
   return (
     <div style={{ maxWidth: "700px", margin: "2rem auto" }}>
