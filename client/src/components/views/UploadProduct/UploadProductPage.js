@@ -117,17 +117,23 @@ function UploadProductPage() {
         <select
           onChange={onCategorySelectChange}
           value={CategoryValue}
-          style={{ width: "400px" }}
+          style={{ width: "700px" }}
         >
           {Category.map((item) => (
-            <option key={item.key} value={item.key}>
+            <option
+              key={item.key}
+              value={item.key}
+              style={{ justifyContent: "center" }}
+            >
               {item.value}
             </option>
           ))}
         </select>
         <br></br>
         <br></br>
-        <Button style={{ background: "lightblue" }}>Submit</Button>
+        <Button style={{ background: "lightblue", justifyContent: "center" }}>
+          Submit
+        </Button>
       </Form>
     </div>
   );
