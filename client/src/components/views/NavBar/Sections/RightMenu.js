@@ -28,7 +28,7 @@ function RightMenu(props) {
           </h2>
         </Menu.Item>
         <Menu.Item key="app">
-          <h2>
+          <h2 style={{ paddingBottom: "10px" }}>
             <a href="/register">Signup</a>
           </h2>
         </Menu.Item>
@@ -38,7 +38,7 @@ function RightMenu(props) {
     return (
       <Menu mode={props.mode}>
         <Menu.Item key="logout">
-          <h2>
+          <h2 style={{ paddingTop: "10px" }}>
             <a onClick={logoutHandler}>Logout</a>
           </h2>
         </Menu.Item>
