@@ -90,31 +90,35 @@ function UploadProductPage() {
   return (
     <div style={{ maxWidth: "700px", margin: "2rem auto" }}>
       <div style={{ textAlign: "center", marginBottom: "2rem" }}>
-        <Title> Upload Product</Title>
+        <Title level={2}> Upload Product</Title>
       </div>
 
-      <form onSubmit>
+      <Form onSubmit>
         {/* DropZone */}
         <br></br>
         <br></br>
         <label> Title </label>
-        <input onChange={onTitleChange} value={TitleValue} />
+        <Input onChange={onTitleChange} value={TitleValue} />
         <br></br>
         <br></br>
         <label>Description</label>
         <br></br>
-        <textarea onChange={onDescriptionChange} value={DescriptionValue} />
+        <TextArea onChange={onDescriptionChange} value={DescriptionValue} />
         <br></br>
         <br></br>
         <label>Price($)</label>
         <br />
-        <input onChange={onPriceChange} value={PriceValue} />
+        <Input onChange={onPriceChange} value={PriceValue} />
         <br></br>
         <br></br>
         <br></br>
         <label>Category</label>
         <br></br>
-        <select onChange={onCategorySelectChange} value={CategoryValue}>
+        <select
+          onChange={onCategorySelectChange}
+          value={CategoryValue}
+          style={{ width: "400px" }}
+        >
           {Category.map((item) => (
             <option key={item.key} value={item.key}>
               {item.value}
@@ -123,8 +127,8 @@ function UploadProductPage() {
         </select>
         <br></br>
         <br></br>
-        <button>Submit</button>
-      </form>
+        <Button style={{ background: "lightblue" }}>Submit</Button>
+      </Form>
     </div>
   );
 }
