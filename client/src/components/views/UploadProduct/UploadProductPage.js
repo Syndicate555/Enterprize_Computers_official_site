@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Typography, Button, Form, message, Input, Icon } from "antd";
 import FileUpload from "../../utils/FileUpload";
-
+import Axios from "axios";
 const { Title } = Typography;
 const { TextArea } = Input;
 const Category = [
@@ -93,13 +93,16 @@ function UploadProductPage() {
   const updateImages = (newImages) => {
     setImages(newImages);
   };
+  const onSubmit = (event) => {
+    event.preventDefault();
+  };
   return (
     <div style={{ maxWidth: "700px", margin: "2rem auto" }}>
       <div style={{ textAlign: "center", marginBottom: "2rem" }}>
         <Title level={2}> Upload Product</Title>
       </div>
 
-      <Form onSubmit>
+      <Form onSubmit={onSubmit}>
         {/* DropZone */}
         <FileUpload refreshFunction={updateImages} />
         <br></br>
@@ -138,7 +141,10 @@ function UploadProductPage() {
         </select>
         <br></br>
         <br></br>
-        <Button style={{ background: "lightblue", justifyContent: "center" }}>
+        <Button
+          style={{ background: "lightblue", justifyContent: "center" }}
+          onClick={onSubmit}
+        >
           Submit
         </Button>
       </Form>
