@@ -1,4 +1,7 @@
 import React, { useState } from "react";
+import { Typography, Button, Form, message, Input, Icon } from "antd";
+const { Title } = Typography;
+const { TextArea } = Input;
 const Category = [
   { key: 1, value: "Desktop PCs and Software" },
   {
@@ -87,7 +90,7 @@ function UploadProductPage() {
   return (
     <div style={{ maxWidth: "700px", margin: "2rem auto" }}>
       <div style={{ textAlign: "center", marginBottom: "2rem" }}>
-        <h2> Upload Travel Product</h2>
+        <Title> Upload Product</Title>
       </div>
 
       <form onSubmit>
@@ -105,13 +108,13 @@ function UploadProductPage() {
         <br></br>
         <label>Price($)</label>
         <br />
-        <input onChange={setPriceValue} value={PriceValue} />
+        <input onChange={onPriceChange} value={PriceValue} />
         <br></br>
         <br></br>
         <br></br>
         <label>Category</label>
         <br></br>
-        <select onChange={onCategorySelectChange}>
+        <select onChange={onCategorySelectChange} value={CategoryValue}>
           {Category.map((item) => (
             <option key={item.key} value={item.key}>
               {item.value}

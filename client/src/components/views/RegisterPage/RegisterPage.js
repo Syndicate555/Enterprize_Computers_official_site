@@ -81,7 +81,6 @@ function RegisterPage(props) {
           values,
           touched,
           errors,
-          // eslint-disable-next-line no-use-before-define
           dirty,
           isSubmitting,
           handleChange,
