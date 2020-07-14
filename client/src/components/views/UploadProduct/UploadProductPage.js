@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import { Typography, Button, Form, message, Input, Icon } from "antd";
+import FileUpload from "../../utils/FileUpload";
+
 const { Title } = Typography;
 const { TextArea } = Input;
 const Category = [
@@ -92,6 +94,7 @@ function UploadProductPage() {
       <div style={{ textAlign: "center", marginBottom: "2rem" }}>
         <Title level={2}> Upload Product</Title>
       </div>
+      <FileUpload />
 
       <Form onSubmit>
         {/* DropZone */}
