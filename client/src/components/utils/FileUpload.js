@@ -37,8 +37,8 @@ function FileUpload(props) {
         {({ getRootProps, getInputProps }) => (
           <div
             style={{
-              width: "300px",
-              height: "240px",
+              width: "340px",
+              height: "340px",
               border: "1px solid lightgray",
               display: "flex",
               alignItems: "center",
@@ -53,13 +53,15 @@ function FileUpload(props) {
           </div>
         )}
       </Dropzone>
-
+      <br />
+      <br />
       <div
         style={{
           display: "flex",
-          width: "350px",
-          height: "240px",
+          width: "340px",
+          height: "340px",
           overflowX: "scroll",
+          overflowY: "scroll",
         }}
       >
         {Images.map((image, index) => (
