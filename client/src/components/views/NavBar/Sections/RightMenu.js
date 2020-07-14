@@ -39,9 +39,7 @@ function RightMenu(props) {
       <Menu mode={props.mode}>
         <Menu.Item key="uploadt">
           <h2 style={{ paddingTop: "10px" }}>
-            <a href="/product/upload" onClick={logoutHandler}>
-              Upload
-            </a>
+            <a href="/product/upload">Upload</a>
           </h2>
         </Menu.Item>
         <Menu.Item key="logout">
