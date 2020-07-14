@@ -1,9 +1,76 @@
 import React, { useState } from "react";
+const Category = [
+  { key: 1, value: "Desktop PCs and Software" },
+  {
+    key: 2,
+    value: "Notebooks and Tablets",
+  },
+  {
+    key: 3,
+    value: "Case & Cooling",
+  },
+  {
+    key: 4,
+    value: "Computer Components",
+  },
+  {
+    key: 5,
+    value: "CPU",
+  },
+  {
+    key: 6,
+    value: "Flash/Storage Media",
+  },
+  {
+    key: 7,
+    value: "Smart Phones & Gadgets",
+  },
+  {
+    key: 8,
+    value: "Hard Drives & SSDs",
+  },
+  {
+    key: 9,
+    value: "Headphones & Speakers",
+  },
+  {
+    key: 10,
+    value: "Peripherals",
+  },
+  {
+    key: 11,
+    value: "Memory",
+  },
+  {
+    key: 12,
+    value: "Monitors",
+  },
+  {
+    key: 13,
+    value: "Motherboards",
+  },
+  {
+    key: 14,
+    value: "Networking ",
+  },
+  {
+    key: 15,
+    value: "Power Protection",
+  },
+  {
+    key: 16,
+    value: "Power Supplies",
+  },
+  {
+    key: 17,
+    value: "Security & Surveillance",
+  },
+];
 
 function UploadProductPage() {
   const [TitleValue, setTitleValue] = useState("");
   const [DescriptionValue, setDescriptionValue] = useState("");
-  const [PriceValue, setPriceValue] = useState("");
+  const [PriceValue, setPriceValue] = useState(0);
   const onTitleChange = (event) => {
     setTitleValue(event.currentTarget.value);
   };
