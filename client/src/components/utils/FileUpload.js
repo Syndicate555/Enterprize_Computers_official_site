@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 import Dropzone from "react-dropzone";
 import { Icon } from "antd";
 import Axios from "axios";
 function FileUpload() {
+  const [Images, setImages] = useState("");
   const onDrop = (files) => {
     let formData = new FormData();
     const config = {
