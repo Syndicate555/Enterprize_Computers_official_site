@@ -8,7 +8,7 @@ const { response } = require("express");
 // Saving the file in the uploads folder in the root directory
 var storage = multer.diskStorage({
   destination: (req, file, cb) => {
-    cb(null, "upload/");
+    cb(null, "uploads/");
   },
   filename: (req, file, cb) => {
     cb(null, `${Date.now()}_${file.originalname}`);
@@ -22,7 +22,7 @@ var storage = multer.diskStorage({
   },
 });
 
-var upload = multer({ storage: stprage }).single("file");
+var upload = multer({ storage: storage }).single("file");
 //=================================
 //            Product
 //=================================
