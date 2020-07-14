@@ -8,7 +8,7 @@ const { auth } = require("../middleware/auth");
 //            Product
 //=================================
 
-router.get("/auth", auth, (req, res) => {
+router.get("/uploadImage", auth, (req, res) => {
   res.status(200).json({
     _id: req.user._id,
     isAdmin: req.user.role === 0 ? false : true,
