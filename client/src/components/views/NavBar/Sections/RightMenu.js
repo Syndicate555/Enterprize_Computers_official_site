@@ -23,12 +23,12 @@ function RightMenu(props) {
     return (
       <Menu mode={props.mode}>
         <Menu.Item key="mail">
-          <h2 style={{ paddingBottom: "10px" }}>
+          <h2 style={{ paddingTop: "10px" }}>
             <a href="/login">Signin</a>
           </h2>
         </Menu.Item>
         <Menu.Item key="app">
-          <h2 style={{ paddingBottom: "10px" }}>
+          <h2 style={{ paddingTop: "10px" }}>
             <a href="/register">Signup</a>
           </h2>
         </Menu.Item>
