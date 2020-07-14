@@ -1,10 +1,27 @@
 import React from "react";
 import Dropzone from "react-dropzone";
 import { Icon } from "antd";
+import Axios from "axios";
 function FileUpload() {
+  const onDrop = (files) => {
+    let formData = new FormData();
+    const config = {
+      header: { "content-type": "multiple/form-data" },
+    };
+    formData.append("file", files[0]);
+    // Saving the image inside the Node server
+    Axios.post("/api/product/uploadImage", formData, config).then(
+      (response) => {
+        if (response.data.success) {
+        } else {
+          alert("Failed to save the Image in Server");
+        }
+      }
+    );
+  };
   return (
     <div style={{ display: "flex", justifyContent: "space-between" }}>
-      <Dropzone onDrop multiple maxSize>
+      <Dropzone onDrop={onDrop} multiple maxSize>
         {({ getRootProps, getInputProps }) => (
           <div
             style={{
