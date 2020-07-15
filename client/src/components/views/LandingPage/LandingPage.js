@@ -5,6 +5,7 @@ import ImageSlider from "../../utils/ImageSlider";
 
 import { Icon, Col, Card, Row } from "antd";
 import CheckBox from "./sections/CheckBox";
+import RadioBox from "./sections/RadioBox";
 const { Meta } = Card;
 
 function LandingPage() {
