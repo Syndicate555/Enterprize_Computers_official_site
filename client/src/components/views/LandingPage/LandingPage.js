@@ -14,13 +14,11 @@ function LandingPage() {
     });
   });
   return (
-    <>
-      <div className="app">
-        <FaCode style={{ fontSize: "4rem" }} />
-        <br />
-        <span style={{ fontSize: "2rem" }}>Let's Start Coding!</span>
+    <div style={{ width: "75%", margin: "3rem auto" }}>
+      <div style={{ textAlign: "center" }}>
+        <h2> Welcome to the World of Computers </h2>
       </div>
-    </>
+    </div>
   );
 }
 
