@@ -3,6 +3,14 @@ import { FaCode } from "react-icons/fa";
 import Axios from "axios";
 
 function LandingPage() {
+  useEffect(() => {
+    Axios.post("/api/product/getProduct").then((response) => {
+      if (response.data.success) {
+      } else {
+        alert("Failed to fetch product data");
+      }
+    });
+  });
   return (
     <>
       <div className="app">
