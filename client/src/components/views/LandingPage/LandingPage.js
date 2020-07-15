@@ -20,7 +20,7 @@ function LandingPage() {
 
   const renderCards = Products.map((product, index) => {
     return (
-      <Col lg={4} md={8} xs={20}>
+      <Col lg={4} md={12} xs={20}>
         <Card hoverable={true} cover={<ImageSlider images={product.images} />}>
           <Meta title={product.title} description={`$${product.price}`} />
         </Card>
@@ -30,11 +30,13 @@ function LandingPage() {
   return (
     <div style={{ width: "75%", margin: "3rem auto" }}>
       <div style={{ textAlign: "center" }}>
-        <h2>
+        <h1>
           {" "}
           Welcome to the World of Computers
           <Icon type="rocket" />{" "}
-        </h2>
+        </h1>
+        <br />
+        <br />
       </div>
 
       {/* Filter  */}
