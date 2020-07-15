@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { FaCode } from "react-icons/fa";
 import Axios from "axios";
 import { Icon, Col, Card, Row } from "antd";
+const { Meta } = Card;
 
 function LandingPage() {
   const [Products, setProducts] = useState([]);
@@ -14,6 +15,16 @@ function LandingPage() {
       }
     });
   });
+
+  const renderCards = Products.map((product, index) => {
+    return (
+      <Col lg={6} md={8} xs={24}>
+        <Card hoverable={true} cover>
+          <Meta title={product.title} description={`$${product.price}`} />
+        </Card>
+      </Col>
+    );
+  });
   return (
     <div style={{ width: "75%", margin: "3rem auto" }}>
       <div style={{ textAlign: "center" }}>
@@ -22,6 +33,31 @@ function LandingPage() {
           Welcome to the World of Computers
           <Icon type="rocket" />{" "}
         </h2>
+      </div>
+
+      {/* Filter  */}
+
+      <Row gutter={[16, 16]}></Row>
+
+      {Products.length === 0 ? (
+        <div
+          style={{
+            display: "flex",
+            height: "300px",
+            justifyContent: "center",
+            alignItems: "center",
+          }}
+        >
+          <h2>No post yet...</h2>
+        </div>
+      ) : (
+        <div></div>
+      )}
+
+      <br />
+      <br />
+      <div style={{ display: "flex", justifyContent: "center" }}>
+        <button>Load More</button>
       </div>
     </div>
   );
