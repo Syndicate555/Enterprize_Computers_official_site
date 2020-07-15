@@ -56,7 +56,23 @@ function LandingPage() {
     setSkip(skip);
   };
 
-  const handleFilters = (filters, category) => {};
+  const showFilteredResults = (filters) => {
+    const variables = {
+      skip: skip,
+      limit: Limit,
+    };
+    getProducts(variables);
+  };
+
+  const handleFilters = (filters, category) => {
+    const newFilters = { ...Filters };
+    newFilters[category] = filters;
+
+    if (category === "price") {
+    }
+    showFilteredResults(newFilters);
+    setFilters(newFilters);
+  };
   return (
     <div style={{ width: "75%", margin: "3rem auto" }}>
       <div style={{ textAlign: "center" }}>
