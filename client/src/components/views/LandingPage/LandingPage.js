@@ -1,11 +1,13 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { FaCode } from "react-icons/fa";
 import Axios from "axios";
 
 function LandingPage() {
+  const [Products, setProducts] = useState([]);
   useEffect(() => {
     Axios.post("/api/product/getProduct").then((response) => {
       if (response.data.success) {
+        setProducts(response.data.Products);
       } else {
         alert("Failed to fetch product data");
       }
