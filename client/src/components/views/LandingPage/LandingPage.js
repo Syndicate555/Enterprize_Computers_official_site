@@ -48,6 +48,7 @@ function LandingPage() {
       limit: Limit,
     };
     getProducts(variables);
+    setSkip(skip);
   };
   return (
     <div style={{ width: "75%", margin: "3rem auto" }}>
