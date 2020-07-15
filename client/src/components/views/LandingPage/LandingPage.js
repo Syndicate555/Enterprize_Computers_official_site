@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { FaCode } from "react-icons/fa";
 import Axios from "axios";
 import ImageSlider from "../../utils/ImageSlider";
-
+import { categories, price } from "./sections/Datas";
 import { Icon, Col, Card, Row } from "antd";
 import CheckBox from "./sections/CheckBox";
 import RadioBox from "./sections/RadioBox";
@@ -71,12 +71,23 @@ function LandingPage() {
     getProducts(variables);
     setSkip(0);
   };
-
+  const handlePrice = (value) => {
+    const data = price;
+    let array = [];
+    for (let key in data) {
+      if (data[key]._id === parseInt(value, 10)) {
+        array = data[key].array;
+      }
+    }
+    return array;
+  };
   const handleFilters = (filters, category) => {
     const newFilters = { ...Filters };
     newFilters[category] = filters;
 
     if (category === "price") {
+      let priceValues = handlePrice(filters);
+      newFilters[category] = priceValues;
     }
     showFilteredResults(newFilters);
     setFilters(newFilters);
@@ -97,11 +108,13 @@ function LandingPage() {
       <Row gutter={[16, 16]}>
         <Col lg={12} xs={24}>
           <CheckBox
+            list={categories}
             handleFilters={(filters) => handleFilters(filters, "continents")}
           />
         </Col>
         <Col lg={12} xs={24}>
           <RadioBox
+            list={price}
             handleFilters={(filters) => handleFilters(filters, "price")}
           />
         </Col>
