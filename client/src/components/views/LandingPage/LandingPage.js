@@ -6,6 +6,7 @@ import { categories, price } from "./sections/Datas";
 import { Icon, Col, Card, Row } from "antd";
 import CheckBox from "./sections/CheckBox";
 import RadioBox from "./sections/RadioBox";
+import SearchBar from "./sections/SearchBar";
 const { Meta } = Card;
 
 function LandingPage() {
@@ -100,11 +101,18 @@ function LandingPage() {
           Welcome to the World of Computers
           <Icon type="rocket" />{" "}
         </h1>
-        <br />
-        <br />
       </div>
 
-      {/* Filter  */}
+      {/* Filters */}
+
+      <Row style={{ paddingLeft: "520px" }} gutter={[10, 10]}>
+        <Col lg={12} xs={20}>
+          <SearchBar />
+        </Col>
+      </Row>
+      <br />
+      <br />
+
       <Row gutter={[16, 16]}>
         <Col lg={12} xs={24}>
           <CheckBox
@@ -119,7 +127,6 @@ function LandingPage() {
           />
         </Col>
       </Row>
-      <br />
 
       {Products.length === 0 ? (
         <div
