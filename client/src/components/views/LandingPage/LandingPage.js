@@ -4,6 +4,7 @@ import Axios from "axios";
 import ImageSlider from "../../utils/ImageSlider";
 
 import { Icon, Col, Card, Row } from "antd";
+import CheckBox from "./sections/CheckBox";
 const { Meta } = Card;
 
 function LandingPage() {
@@ -50,6 +51,8 @@ function LandingPage() {
     getProducts(variables);
     setSkip(skip);
   };
+
+  const handleFilters = (filters, category) => {};
   return (
     <div style={{ width: "75%", margin: "3rem auto" }}>
       <div style={{ textAlign: "center" }}>
@@ -63,6 +66,10 @@ function LandingPage() {
       </div>
 
       {/* Filter  */}
+      <CheckBox
+        handleFilters={(filters) => handleFilters(filters, "categories")}
+      />
+      <br />
 
       {Products.length === 0 ? (
         <div

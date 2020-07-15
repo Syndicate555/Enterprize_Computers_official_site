@@ -55,7 +55,7 @@ router.post("/uploadProduct", auth, (req, res) => {
   });
 });
 
-router.post("/getProducts", auth, (req, res) => {
+router.post("/getProducts", (req, res) => {
   // Fetch the data from the database to the client
 
   let order = req.body.order ? req.body.order : "desc";
