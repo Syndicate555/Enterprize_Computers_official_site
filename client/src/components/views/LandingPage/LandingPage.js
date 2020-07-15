@@ -8,6 +8,8 @@ const { Meta } = Card;
 
 function LandingPage() {
   const [Products, setProducts] = useState([]);
+  const [Skip, setSkip] = useState(0);
+  const [Limit, setLimit] = useState(12);
   useEffect(() => {
     Axios.post("/api/product/getProducts").then((response) => {
       if (response.data.success) {
@@ -27,6 +29,7 @@ function LandingPage() {
       </Col>
     );
   });
+  const loadMore = () => {};
   return (
     <div style={{ width: "75%", margin: "3rem auto" }}>
       <div style={{ textAlign: "center" }}>
@@ -61,7 +64,7 @@ function LandingPage() {
       <br />
       <br />
       <div style={{ display: "flex", justifyContent: "center" }}>
-        <button>Load More</button>
+        <button onClick={loadMore}>Load More</button>
       </div>
     </div>
   );
