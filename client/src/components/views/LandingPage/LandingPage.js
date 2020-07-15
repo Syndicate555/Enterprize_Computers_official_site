@@ -10,7 +10,7 @@ function LandingPage() {
   const [Products, setProducts] = useState([]);
   const [Skip, setSkip] = useState(0);
   const [Limit, setLimit] = useState(12);
-  const [PostSize, setPostSize] = useState();
+  const [PostSize, setPostSize] = useState(0);
 
   useEffect(() => {
     const variables = {
@@ -34,6 +34,7 @@ function LandingPage() {
     Axios.post("/api/product/getProducts", variables).then((response) => {
       if (response.data.success) {
         setProducts([...Products, ...response.data.products]);
+        setPostSize(response.data.postSize);
       } else {
         alert("Failed to fetch product data");
       }
@@ -62,8 +63,6 @@ function LandingPage() {
 
       {/* Filter  */}
 
-      <Row gutter={[16, 16]}>{renderCards}</Row>
-
       {Products.length === 0 ? (
         <div
           style={{
@@ -76,14 +75,18 @@ function LandingPage() {
           <h2>No post yet...</h2>
         </div>
       ) : (
-        <div></div>
+        <div>
+          <Row gutter={[16, 16]}>{renderCards}</Row>
+        </div>
       )}
 
       <br />
       <br />
-      <div style={{ display: "flex", justifyContent: "center" }}>
-        <button onClick={loadMore}>Load More</button>
-      </div>
+      {PostSize >= Limit && (
+        <div style={{ display: "flex", justifyContent: "center" }}>
+          <button onClick={loadMore}>Load More</button>
+        </div>
+      )}
     </div>
   );
 }
