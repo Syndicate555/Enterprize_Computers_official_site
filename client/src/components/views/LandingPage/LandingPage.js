@@ -10,15 +10,15 @@ function LandingPage() {
   const [Products, setProducts] = useState([]);
   const [Skip, setSkip] = useState(0);
   const [Limit, setLimit] = useState(12);
+  const [PostSize, setPostSize] = useState();
+
   useEffect(() => {
-    Axios.post("/api/product/getProducts").then((response) => {
-      if (response.data.success) {
-        setProducts(response.data.products);
-      } else {
-        alert("Failed to fetch product data");
-      }
-    });
-  });
+    const variables = {
+      skip: Skip,
+      limit: Limit,
+    };
+    getProducts(variables);
+  }, []);
 
   const renderCards = Products.map((product, index) => {
     return (
@@ -29,7 +29,25 @@ function LandingPage() {
       </Col>
     );
   });
-  const loadMore = () => {};
+
+  const getProducts = (variables) => {
+    Axios.post("/api/product/getProducts", variables).then((response) => {
+      if (response.data.success) {
+        setProducts(response.data.products);
+      } else {
+        alert("Failed to fetch product data");
+      }
+    });
+  };
+
+  const loadMore = () => {
+    let skip = Skip + Limit;
+    const variables = {
+      skip: Skip,
+      limit: Limit,
+    };
+    getProducts(variables);
+  };
   return (
     <div style={{ width: "75%", margin: "3rem auto" }}>
       <div style={{ textAlign: "center" }}>
