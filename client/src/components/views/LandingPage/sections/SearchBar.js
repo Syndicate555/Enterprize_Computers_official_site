@@ -17,7 +17,7 @@ function SearchBar(props) {
       <Search
         value={SearchTerms}
         onChange={onChangeSearch}
-        placeholder="Search By Typing..."
+        placeholder="Search the Enterpize Directory......"
       />
     </div>
   );
