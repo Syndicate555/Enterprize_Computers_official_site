@@ -55,7 +55,7 @@ router.post("/uploadProduct", auth, (req, res) => {
   });
 });
 
-router.get("/getProduct", auth, (req, res) => {
+router.post("/getProducts", auth, (req, res) => {
   // Fetch the data from the database to the client
 
   Product.find().exec((err, products) => {

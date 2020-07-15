@@ -9,9 +9,9 @@ const { Meta } = Card;
 function LandingPage() {
   const [Products, setProducts] = useState([]);
   useEffect(() => {
-    Axios.post("/api/product/getProduct").then((response) => {
+    Axios.post("/api/product/getProducts").then((response) => {
       if (response.data.success) {
-        setProducts(response.data.Products);
+        setProducts(response.data.products);
       } else {
         alert("Failed to fetch product data");
       }
@@ -20,7 +20,7 @@ function LandingPage() {
 
   const renderCards = Products.map((product, index) => {
     return (
-      <Col lg={6} md={8} xs={24}>
+      <Col lg={4} md={8} xs={20}>
         <Card hoverable={true} cover={<ImageSlider images={product.images} />}>
           <Meta title={product.title} description={`$${product.price}`} />
         </Card>
@@ -39,7 +39,7 @@ function LandingPage() {
 
       {/* Filter  */}
 
-      <Row gutter={[16, 16]}></Row>
+      <Row gutter={[16, 16]}>{renderCards}</Row>
 
       {Products.length === 0 ? (
         <div
