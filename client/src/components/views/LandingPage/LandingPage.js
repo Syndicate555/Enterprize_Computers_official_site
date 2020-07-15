@@ -94,9 +94,18 @@ function LandingPage() {
       </div>
 
       {/* Filter  */}
-      <CheckBox
-        handleFilters={(filters) => handleFilters(filters, "categories")}
-      />
+      <Row gutter={[16, 16]}>
+        <Col lg={12} xs={24}>
+          <CheckBox
+            handleFilters={(filters) => handleFilters(filters, "continents")}
+          />
+        </Col>
+        <Col lg={12} xs={24}>
+          <RadioBox
+            handleFilters={(filters) => handleFilters(filters, "price")}
+          />
+        </Col>
+      </Row>
       <br />
 
       {Products.length === 0 ? (
