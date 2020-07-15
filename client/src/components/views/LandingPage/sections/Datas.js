@@ -73,6 +73,27 @@ const categories = [
     {
         "_id": 10,
         "name": "Peripherals"
+    },{
+        "_id": 11,
+        "name": "Memory"
+    },{
+        "_id": 12,
+        "name": "Monitors"
+    },{
+        "_id": 13,
+        "name": "Motherboards"
+    },{
+        "_id": 14,
+        "name": "Networking"
+    },{
+        "_id": 15,
+        "name": "Power Protection"
+    },{
+        "_id": 16,
+        "name": "Power Supplies"
+    },{
+        "_id": 17,
+        "name": "Security & Surveillance"
     },
 ]
 
