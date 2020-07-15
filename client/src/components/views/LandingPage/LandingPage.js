@@ -38,7 +38,11 @@ function LandingPage() {
   const getProducts = (variables) => {
     Axios.post("/api/product/getProducts", variables).then((response) => {
       if (response.data.success) {
-        setProducts([...Products, ...response.data.products]);
+        if (variables.loadMore) {
+          setProducts([...Products, ...response.data.products]);
+        } else {
+          setProducts(response.data.products);
+        }
         setPostSize(response.data.postSize);
       } else {
         alert("Failed to fetch product data");
@@ -51,6 +55,7 @@ function LandingPage() {
     const variables = {
       skip: skip,
       limit: Limit,
+      loadMore: true,
     };
     getProducts(variables);
     setSkip(skip);
@@ -58,10 +63,12 @@ function LandingPage() {
 
   const showFilteredResults = (filters) => {
     const variables = {
-      skip: skip,
+      skip: 0,
       limit: Limit,
+      filters: filters,
     };
     getProducts(variables);
+    setSkip(0);
   };
 
   const handleFilters = (filters, category) => {
