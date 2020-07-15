@@ -1,6 +1,6 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React from "react";
-import { Menu } from "antd";
+import { Menu, Icon, Badge } from "antd";
 import axios from "axios";
 import { USER_SERVER } from "../../../Config";
 import { withRouter } from "react-router-dom";
@@ -37,10 +37,17 @@ function RightMenu(props) {
   } else {
     return (
       <Menu mode={props.mode}>
-        <Menu.Item key="uploadt">
+        <Menu.Item key="upload">
           <h2 style={{ paddingTop: "10px" }}>
             <a href="/product/upload">Upload</a>
           </h2>
+        </Menu.Item>
+        <Menu.Item key="cart">
+          <Badge count={2}>
+            <a href="/user/cart" style={{ marginRight: -22, color: "#667777" }}>
+              <Icon type="shopping-cart" style={{ fontSize: 33 }} />
+            </a>
+          </Badge>
         </Menu.Item>
         <Menu.Item key="logout">
           <h2 style={{ paddingTop: "10px" }}>
