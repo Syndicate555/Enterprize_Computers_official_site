@@ -14,6 +14,8 @@ function LandingPage() {
   const [Skip, setSkip] = useState(0);
   const [Limit, setLimit] = useState(12);
   const [PostSize, setPostSize] = useState(0);
+  const [SearchTerms, setSearchTerms] = useState("");
+
   const [Filters, setFilters] = useState({
     categories: [],
     price: [],
@@ -82,6 +84,20 @@ function LandingPage() {
     }
     return array;
   };
+
+  const updateSearchTerms = (newSearchTerm) => {
+    const variables = {
+      skip: 0,
+      limit: Limit,
+      filters: Filters,
+      searchTerm: newSearchTerm,
+    };
+
+    setSkip(0);
+    setSearchTerms(newSearchTerm);
+
+    getProducts(variables);
+  };
   const handleFilters = (filters, category) => {
     const newFilters = { ...Filters };
     newFilters[category] = filters;
@@ -107,7 +123,7 @@ function LandingPage() {
 
       <Row style={{ paddingLeft: "520px" }} gutter={[10, 10]}>
         <Col lg={12} xs={20}>
-          <SearchBar />
+          <SearchBar refreshFunction={updateSearchTerms} />
         </Col>
       </Row>
       <br />
