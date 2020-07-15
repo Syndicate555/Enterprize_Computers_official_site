@@ -33,7 +33,7 @@ function LandingPage() {
   const getProducts = (variables) => {
     Axios.post("/api/product/getProducts", variables).then((response) => {
       if (response.data.success) {
-        setProducts(response.data.products);
+        setProducts([...Products, ...response.data.products]);
       } else {
         alert("Failed to fetch product data");
       }
@@ -43,7 +43,7 @@ function LandingPage() {
   const loadMore = () => {
     let skip = Skip + Limit;
     const variables = {
-      skip: Skip,
+      skip: skip,
       limit: Limit,
     };
     getProducts(variables);
