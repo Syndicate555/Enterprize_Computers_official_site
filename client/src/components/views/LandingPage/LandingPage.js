@@ -67,6 +67,7 @@ function LandingPage() {
       skip: skip,
       limit: Limit,
       loadMore: true,
+      searchTerm: SearchTerms,
     };
     getProducts(variables);
     setSkip(skip);
