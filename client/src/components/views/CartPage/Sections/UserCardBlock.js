@@ -1,4 +1,5 @@
 import React from "react";
+import { Button } from "antd";
 
 function UserCardBlock(props) {
   const renderCartImage = (images) => {
@@ -22,7 +23,14 @@ function UserCardBlock(props) {
         <td>{product.quantity} EA</td>
         <td>$ {product.price} </td>
         <td>
-          <button onClick={() => props.removeItem(product._id)}>Remove </button>{" "}
+          <Button
+            size="large"
+            shape="round"
+            type="danger"
+            onClick={() => props.removeItem(product._id)}
+          >
+            Remove{" "}
+          </Button>{" "}
         </td>
       </tr>
     ));

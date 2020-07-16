@@ -31,7 +31,7 @@ function ProductInfo(props) {
         <Button
           size="large"
           shape="round"
-          type="danger"
+          type="primary"
           onClick={addToCarthandler}
         >
           Add to Cart
