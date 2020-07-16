@@ -16,17 +16,17 @@ function LeftMenu(props) {
         title={
           <h2>
             {""}
-            <a href="/">Blogs</a>
+            <a href="/">More</a>
           </h2>
         }
       >
-        <MenuItemGroup title="Item 1">
-          <Menu.Item key="setting:1">Option 1</Menu.Item>
-          <Menu.Item key="setting:2">Option 2</Menu.Item>
+        <MenuItemGroup title="Business">
+          <Menu.Item key="setting:1">Brands</Menu.Item>
+          <Menu.Item key="setting:2">Services</Menu.Item>
         </MenuItemGroup>
-        <MenuItemGroup title="Item 2">
-          <Menu.Item key="setting:3">Option 3</Menu.Item>
-          <Menu.Item key="setting:4">Option 4</Menu.Item>
+        <MenuItemGroup title="Get in Touch">
+          <Menu.Item key="setting:3">About Us</Menu.Item>
+          <Menu.Item key="setting:4">Contact</Menu.Item>
         </MenuItemGroup>
       </SubMenu>
     </Menu>

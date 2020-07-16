@@ -96,7 +96,7 @@ function RegisterPage(props) {
               {...formItemLayout}
               onSubmit={handleSubmit}
             >
-              <Form.Item required label="Name">
+              <Form.Item required label="First Name">
                 <Input
                   id="name"
                   placeholder="Enter your name"
