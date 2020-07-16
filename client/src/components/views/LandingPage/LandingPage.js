@@ -156,8 +156,8 @@ function LandingPage() {
           style={{
             display: "flex",
             height: "300px",
-            justifyContent: "center",
             alignItems: "center",
+            paddingLeft: "400px",
           }}
         >
           <h2>No post yet...</h2>

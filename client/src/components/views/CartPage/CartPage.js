@@ -21,7 +21,7 @@ function CartPage(props) {
     <div style={{ width: "85%", margin: "3rem auto" }}>
       <h1>My Cart</h1>
       <div>
-        <UserCardBlock />
+        <UserCardBlock products={props.user.cartDetail} />
         <div style={{ marginTop: "3rem" }}>
           <h2>Total amount: $</h2>
         </div>
@@ -39,7 +39,7 @@ function CartPage(props) {
       >
         <br />
         <Empty description={false} />
-        <p>No items in the Cart</p>
+        <p style={{ textAlign: "center" }}>No items in the Cart</p>
       </div>
     </div>
   );
