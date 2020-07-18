@@ -90,7 +90,7 @@ function RegisterPage(props) {
         } = props;
         return (
           <div className="app">
-            <h2>Sign up</h2>
+            <h2> Sign up</h2>
             <Form
               style={{ minWidth: "375px" }}
               {...formItemLayout}
