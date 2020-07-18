@@ -1,6 +1,7 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React from "react";
 import { Menu, Icon, Badge } from "antd";
+import { UploadOutlined } from "@ant-design/icons";
 import axios from "axios";
 import { USER_SERVER } from "../../../Config";
 import { withRouter } from "react-router-dom";
@@ -8,6 +9,9 @@ import { useSelector } from "react-redux";
 
 function RightMenu(props) {
   const user = useSelector((state) => state.user);
+  // state = {
+  //   name: "",
+  // };
 
   const logoutHandler = () => {
     axios.get(`${USER_SERVER}/logout`).then((response) => {
@@ -37,8 +41,18 @@ function RightMenu(props) {
   } else {
     return (
       <Menu mode={props.mode}>
+        <Menu.Item key="username">
+          <h2 style={{ paddingTop: "10px" }}>
+            <a href="/product/upload">
+              Welcome, {user.userData && user.userData.name}
+            </a>
+            <Icon name="twitter" />
+          </h2>
+        </Menu.Item>
+        <Menu.Item key="icon"></Menu.Item>
         <Menu.Item key="upload">
           <h2 style={{ paddingTop: "10px" }}>
+            <UploadOutlined style={{ fontSize: "28px" }} />
             <a href="/product/upload">Upload</a>
           </h2>
         </Menu.Item>
