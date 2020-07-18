@@ -109,8 +109,6 @@ router.get("/products_by_id", auth, (req, res) => {
   let type = req.query.type;
   let productIds = req.query.id;
 
-  console.log("req.query.id", req.query.id);
-
   if (type === "array") {
     let ids = req.query.id.split(",");
     productIds = [];
@@ -118,8 +116,6 @@ router.get("/products_by_id", auth, (req, res) => {
       return item;
     });
   }
-
-  console.log("productIds", productIds);
 
   //we need to find the product information that belong to product Id
   Product.find({ _id: { $in: productIds } })
