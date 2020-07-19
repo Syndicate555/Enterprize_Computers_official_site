@@ -53,6 +53,8 @@ function App() {
             />
           </Switch>
         </div>
+        <hr />
+
         <Footer />
       </Suspense>
     </I18nProvider>
