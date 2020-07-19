@@ -49,7 +49,11 @@ function RightMenu(props) {
             <Icon name="twitter" />
           </h2>
         </Menu.Item>
-        <Menu.Item key="icon"></Menu.Item>
+        <Menu.Item key="history">
+          <h2 style={{ paddingTop: "10px" }}>
+            <a href="/history">History</a>
+          </h2>
+        </Menu.Item>
         <Menu.Item key="upload">
           <h2 style={{ paddingTop: "10px" }}>
             <UploadOutlined style={{ fontSize: "28px" }} />
