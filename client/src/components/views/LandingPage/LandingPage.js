@@ -7,6 +7,9 @@ import { Icon, Col, Card, Row } from "antd";
 import CheckBox from "./sections/CheckBox";
 import RadioBox from "./sections/RadioBox";
 import SearchBar from "./sections/SearchBar";
+import { I18nProvider, LOCALES } from "../../../i18n";
+import { FormattedMessage } from "react-intl";
+import translate from "../../../i18n/translate";
 const { Meta } = Card;
 
 function LandingPage() {
@@ -118,65 +121,68 @@ function LandingPage() {
     setFilters(newFilters);
   };
   return (
-    <div style={{ width: "75%", margin: "3rem auto" }}>
-      <div style={{ textAlign: "center" }}>
-        <h1>
-          {" "}
-          Welcome to the World of Computers
-          <Icon type="rocket" />{" "}
-        </h1>
+    <I18nProvider locale={LOCALES.ENGLISH}>
+      <div style={{ width: "75%", margin: "3rem auto" }}>
+        <div style={{ textAlign: "center" }}>
+          <h1>
+            {" "}
+            {translate("Welcome to the world of computers")}
+            <Icon type="rocket" />{" "}
+          </h1>
+        </div>
+
+        {/* Filters */}
+
+        <Row style={{ paddingLeft: "520px" }} gutter={[10, 10]}>
+          <Col lg={12} xs={20}>
+            <SearchBar refreshFunction={updateSearchTerms} />
+          </Col>
+        </Row>
+        <br />
+        <br />
+
+        <Row gutter={[16, 16]}>
+          <Col lg={12} xs={24}>
+            <CheckBox
+              list={categories}
+              handleFilters={(filters) => handleFilters(filters, "categories")}
+            />
+          </Col>
+          <Col lg={12} xs={24}>
+            <RadioBox
+              list={price}
+              handleFilters={(filters) => handleFilters(filters, "price")}
+            />
+          </Col>
+        </Row>
+
+        {Products.length === 0 ? (
+          <div
+            style={{
+              display: "flex",
+              height: "300px",
+              alignItems: "center",
+              paddingLeft: "400px",
+            }}
+          >
+            <h2>No post yet...</h2>
+          </div>
+        ) : (
+          <div>
+            <Row gutter={[16, 16]}>{renderCards}</Row>
+          </div>
+        )}
+
+        <br />
+        <br />
+        {PostSize >= Limit && (
+          <div style={{ display: "flex", justifyContent: "center" }}>
+            <button onClick={loadMore}>Load More</button>
+          </div>
+        )}
       </div>
-
-      {/* Filters */}
-
-      <Row style={{ paddingLeft: "520px" }} gutter={[10, 10]}>
-        <Col lg={12} xs={20}>
-          <SearchBar refreshFunction={updateSearchTerms} />
-        </Col>
-      </Row>
-      <br />
-      <br />
-
-      <Row gutter={[16, 16]}>
-        <Col lg={12} xs={24}>
-          <CheckBox
-            list={categories}
-            handleFilters={(filters) => handleFilters(filters, "categories")}
-          />
-        </Col>
-        <Col lg={12} xs={24}>
-          <RadioBox
-            list={price}
-            handleFilters={(filters) => handleFilters(filters, "price")}
-          />
-        </Col>
-      </Row>
-
-      {Products.length === 0 ? (
-        <div
-          style={{
-            display: "flex",
-            height: "300px",
-            alignItems: "center",
-            paddingLeft: "400px",
-          }}
-        >
-          <h2>No post yet...</h2>
-        </div>
-      ) : (
-        <div>
-          <Row gutter={[16, 16]}>{renderCards}</Row>
-        </div>
-      )}
-
-      <br />
-      <br />
-      {PostSize >= Limit && (
-        <div style={{ display: "flex", justifyContent: "center" }}>
-          <button onClick={loadMore}>Load More</button>
-        </div>
-      )}
-    </div>
+      <hr />
+    </I18nProvider>
   );
 }
 
