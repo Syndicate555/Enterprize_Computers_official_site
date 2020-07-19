@@ -18,7 +18,7 @@ function LandingPage() {
   const [Limit, setLimit] = useState(12);
   const [PostSize, setPostSize] = useState(0);
   const [SearchTerms, setSearchTerms] = useState("");
-  const [locale, setlocale] = useState();
+  const [locale, setlocale] = useState(LOCALES.ENGLISH);
 
   const [Filters, setFilters] = useState({
     categories: [],
