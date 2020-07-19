@@ -3,7 +3,7 @@ import { FaCode } from "react-icons/fa";
 import Axios from "axios";
 import ImageSlider from "../../utils/ImageSlider";
 import { categories, price } from "./sections/Datas";
-import { Icon, Col, Card, Row } from "antd";
+import { Icon, Col, Card, Row, Button } from "antd";
 import CheckBox from "./sections/CheckBox";
 import RadioBox from "./sections/RadioBox";
 import SearchBar from "./sections/SearchBar";
@@ -18,6 +18,7 @@ function LandingPage() {
   const [Limit, setLimit] = useState(12);
   const [PostSize, setPostSize] = useState(0);
   const [SearchTerms, setSearchTerms] = useState("");
+  const [locale, setlocale] = useState();
 
   const [Filters, setFilters] = useState({
     categories: [],
@@ -121,11 +122,10 @@ function LandingPage() {
     setFilters(newFilters);
   };
   return (
-    <I18nProvider locale={LOCALES.ENGLISH}>
+    <I18nProvider locale={LOCALES.FRENCH}>
       <div style={{ width: "75%", margin: "3rem auto" }}>
         <div style={{ textAlign: "center" }}>
           <h1>
-            {" "}
             {translate("Welcome to the world of computers")}
             <Icon type="rocket" />{" "}
           </h1>
@@ -155,7 +155,9 @@ function LandingPage() {
             />
           </Col>
         </Row>
-
+        <Button>Translate </Button>
+        <hr />
+        <br />
         {Products.length === 0 ? (
           <div
             style={{
@@ -181,7 +183,6 @@ function LandingPage() {
           </div>
         )}
       </div>
-      <hr />
     </I18nProvider>
   );
 }

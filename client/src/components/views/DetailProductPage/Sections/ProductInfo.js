@@ -15,7 +15,7 @@ function ProductInfo(props) {
   };
 
   return (
-    <I18nProvider>
+    <I18nProvider locale={LOCALES.FRENCH}>
       <div>
         <Descriptions title="Product Info">
           <Descriptions.Item label="Price"> {Product.price}</Descriptions.Item>
@@ -23,6 +23,7 @@ function ProductInfo(props) {
           <Descriptions.Item label="View"> {Product.views}</Descriptions.Item>
           <Descriptions.Item label="Description">
             {" "}
+            {translate("Welcome to the world of computers")}
             {Product.description}
           </Descriptions.Item>
         </Descriptions>
