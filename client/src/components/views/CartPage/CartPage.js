@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { getCartItems, removeCartItem } from "../../../_actions/user_actions";
 import UserCardBlock from "./Sections/UserCardBlock";
-import { Result, Empty } from "antd";
+import { Result, Empty, Button } from "antd";
 // import { Paypal } from "../../utils/Paypal";
 import Axios from "axios";
 function CartPage(props) {
@@ -58,6 +58,7 @@ function CartPage(props) {
         {ShowTotal ? (
           <div style={{ marginTop: "3rem" }}>
             <h2>Total amount: ${Total} </h2>
+            <Button>CheckOut</Button>
           </div>
         ) : ShowSuccess ? (
           <Result status="success" title="Successfully Purchased Items" />
@@ -78,8 +79,6 @@ function CartPage(props) {
       </div>
 
       {/* Paypal Button */}
-
-      {/* <Paypal /> */}
     </div>
   );
 }
