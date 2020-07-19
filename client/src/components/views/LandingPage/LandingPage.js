@@ -122,7 +122,7 @@ function LandingPage() {
     setFilters(newFilters);
   };
   return (
-    <I18nProvider locale={LOCALES.FRENCH}>
+    <I18nProvider locale={locale}>
       <div style={{ width: "75%", margin: "3rem auto" }}>
         <div style={{ textAlign: "center" }}>
           <h1>
@@ -155,7 +155,8 @@ function LandingPage() {
             />
           </Col>
         </Row>
-        <Button>Translate </Button>
+        <Button onClick={() => setlocale(LOCALES.ENGLISH)}>ENGLISH </Button>
+        <Button onClick={() => setlocale(LOCALES.FRENCH)}>FRENCH </Button>
         <hr />
         <br />
         {Products.length === 0 ? (
