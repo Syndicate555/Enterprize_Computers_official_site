@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import { FaCode } from "react-icons/fa";
 import Axios from "axios";
 import ImageSlider from "../../utils/ImageSlider";
 import { categories, price } from "./sections/Datas";
@@ -8,7 +7,6 @@ import CheckBox from "./sections/CheckBox";
 import RadioBox from "./sections/RadioBox";
 import SearchBar from "./sections/SearchBar";
 import { I18nProvider, LOCALES } from "../../../i18n";
-import { FormattedMessage } from "react-intl";
 import translate from "../../../i18n/translate";
 const { Meta } = Card;
 
