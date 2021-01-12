@@ -16,7 +16,7 @@ const config = require("./config/key");
 
 const mongoose = require("mongoose");
 const connect = mongoose
-  .connect(config.mongoURI, {
+  .connect('mongodb+srv://saffat1234:saffat1234@storyhub.t0ptc.mongodb.net/storyhub?retryWrites=true&w=majority', {
     useNewUrlParser: true,
     useUnifiedTopology: true,
     useCreateIndex: true,
