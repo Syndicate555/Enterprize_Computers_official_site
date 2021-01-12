@@ -1,3 +1,4 @@
+// Changed the model name from User to Enterprize 
 const mongoose = require("mongoose");
 const bcrypt = require("bcrypt");
 const saltRounds = 10;
