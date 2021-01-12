@@ -11,13 +11,14 @@ dotenv.config({path:'./config/config.env'})
 
 const mongoose = require("mongoose");
 const connect = mongoose
-  .connect('mongodb+srv://saffat1234:saffat1234@storyhub.t0ptc.mongodb.net/storyhub?retryWrites=true&w=majority', {
+  .connect(process.env.MONGO_URI.toString(), {
     useNewUrlParser: true,
     useUnifiedTopology: true,
     useCreateIndex: true,
     useFindAndModify: false,
   })
-  .then(() => console.log("MongoDB Connected..."))
+  .then(() => console.log(`MongoDB Connected: ${connection.connection.host}`)
+  )
   .catch((err) => console.log(err));
 
 app.use(cors());
