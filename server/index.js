@@ -8,18 +8,25 @@ const cookieParser = require("cookie-parser");
 
 const config = require("./config/key");
 dotenv.config({path:'./config/config.env'})
+const db = require('./config/keys').mongoURI;
 
 const mongoose = require("mongoose");
-const connect = mongoose
-  .connect(process.env.MONGO_URI.toString(), {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-    useCreateIndex: true,
-    useFindAndModify: false,
-  })
-  .then(() => console.log(`MongoDB Connected: ${connection.connection.host}`)
-  )
-  .catch((err) => console.log(err));
+// Connect to MongoDB
+const connectDB = async () => {
+  try {
+    const connection = await mongoose.connect('mongodb+srv://saffat1234:saffat1234@storyhub.t0ptc.mongodb.net/storyhub?retryWrites=true&w=majority', {
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+      useFindAndModify: false,
+    })
+
+    console.log(`MongoDB Connected: ${connection.connection.host}`)
+  } catch (err) {
+    console.error(err)
+    process.exit(1)
+  }
+}
+connectDB()
 
 app.use(cors());
 

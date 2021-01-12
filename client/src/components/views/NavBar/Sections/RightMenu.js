@@ -44,7 +44,7 @@ function RightMenu(props) {
         <Menu.Item key="username">
           <h2 style={{ paddingTop: "10px" }}>
             <a href="/product/upload">
-              Welcome, {user.userData && user.userData.name}
+              Welcome {user.userData && user.userData.name}!
             </a>
             <Icon name="twitter" />
           </h2>
