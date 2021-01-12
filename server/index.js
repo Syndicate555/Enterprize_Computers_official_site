@@ -14,7 +14,7 @@ const mongoose = require("mongoose");
 // Connect to MongoDB
 const connectDB = async () => {
   try {
-    const connection = await mongoose.connect('mongodb+srv://saffat1234:saffat1234@storyhub.t0ptc.mongodb.net/storyhub?retryWrites=true&w=majority', {
+    const connection = await mongoose.connect('mongodb+srv://saffat55:saffat55@enterprizecomputers.vfpfx.mongodb.net/<dbname>?retryWrites=true&w=majority', {
       useNewUrlParser: true,
       useUnifiedTopology: true,
       useFindAndModify: false,
