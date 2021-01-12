@@ -9,12 +9,6 @@ const cookieParser = require("cookie-parser");
 const config = require("./config/key");
 dotenv.config({path:'./config/config.env'})
 
-// const mongoose = require("mongoose");
-// mongoose
-//   .connect(config.mongoURI, { useNewUrlParser: true })
-//   .then(() => console.log("DB connected"))
-//   .catch(err => console.error(err));
-
 const mongoose = require("mongoose");
 const connect = mongoose
   .connect('mongodb+srv://saffat1234:saffat1234@storyhub.t0ptc.mongodb.net/storyhub?retryWrites=true&w=majority', {
