@@ -26,7 +26,8 @@ const connectDB = async () => {
     process.exit(1)
   }
 }
-connectDB()
+console.log(process.env.mongoURI)
+// connectDB()
 
 app.use(cors());
 
@@ -57,7 +58,7 @@ if (process.env.NODE_ENV === "production") {
   });
 }
 
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT ;
 
 app.listen(PORT, () => {
   console.log(`Server Listening on ${PORT}`);
