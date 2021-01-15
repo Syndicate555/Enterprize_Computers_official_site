@@ -1,19 +1,19 @@
+require('dotenv').config()
 const express = require("express");
 const app = express();
 const path = require("path");
 const cors = require("cors");
-require('dotenv').config()
 const bodyParser = require("body-parser");
 const cookieParser = require("cookie-parser");
 
-const config = require("./config/key");
-const db = require('./config/keys').mongoURI;
+
 
 const mongoose = require("mongoose");
 // Connect to MongoDB
 const connectDB = async () => {
   try {
-    const connection = await mongoose.connect(process.env.mongoURI, {
+    console.log(process.env.MONGO_URI)
+    const connection = await mongoose.connect(process.env.MONGO_URI, {
       useNewUrlParser: true,
       useUnifiedTopology: true,
       useFindAndModify: false,
