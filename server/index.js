@@ -2,12 +2,11 @@ const express = require("express");
 const app = express();
 const path = require("path");
 const cors = require("cors");
-const dotenv = require('dotenv')
+require('dotenv').config()
 const bodyParser = require("body-parser");
 const cookieParser = require("cookie-parser");
 
 const config = require("./config/key");
-dotenv.config()
 const db = require('./config/keys').mongoURI;
 
 const mongoose = require("mongoose");
@@ -26,8 +25,8 @@ const connectDB = async () => {
     process.exit(1)
   }
 }
-console.log(process.env.mongoURI)
-// connectDB()
+// console.log(process.env.mongoURI)
+connectDB()
 
 app.use(cors());
 
