@@ -14,7 +14,7 @@ const mongoose = require("mongoose");
 // Connect to MongoDB
 const connectDB = async () => {
   try {
-    const connection = await mongoose.connect('mongodb+srv://saffat:saffat@enterprizecomputers.vfpfx.mongodb.net/<dbname>?retryWrites=true&w=majority', {
+    const connection = await mongoose.connect(process.env.mongoURI, {
       useNewUrlParser: true,
       useUnifiedTopology: true,
       useFindAndModify: false,
