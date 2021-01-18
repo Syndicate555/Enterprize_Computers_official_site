@@ -10,7 +10,7 @@ const config = require("./config/key");
 const db = require('./config/keys').mongoURI;
 
 const mongoose = require("mongoose");
-// Connect to MongoDB
+// Connecting to MongoDB
 const connectDB = async () => {
   try {
     const connection = await mongoose.connect(process.env.mongoURI, {
